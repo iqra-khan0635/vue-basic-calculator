@@ -33,8 +33,11 @@ export default {
       this.isActionEqual = false;
     },
     cancel() {
-      this.currentValue = this.currentValue.slice(0, -1);
-      this.isActionEqual = false;
+      if (this.currentValue) {
+        this.currentValue = this.currentValue.slice(0, -1);
+        this.expression = this.expression.slice(0, -1);
+        this.isActionEqual = false;
+      }
     },
     percentage() {
       this.currentValue = parseFloat(this.currentValue / 100).toString();
@@ -73,8 +76,6 @@ export default {
         )
       )
         return false;
-      this.append("=");
-      this.isActionEqual = true;
       let newExpression = this.expression;
 
       let lastChar = this.expression.charAt(this.expression.length - 1);
@@ -86,6 +87,8 @@ export default {
           this.expression = newExpression;
         }
       }
+      this.append("=");
+      this.isActionEqual = true;
 
       let ans = eval(newExpression);
       if (ans == "Infinity") {

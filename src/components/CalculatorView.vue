@@ -30,9 +30,11 @@ export default {
       this.previousValue = "";
       this.expression = "";
       this.lastValue = "";
+      this.isActionEqual = false;
     },
     cancel() {
       this.currentValue = this.currentValue.slice(0, -1);
+      this.isActionEqual = false;
     },
     percentage() {
       this.currentValue = parseFloat(this.currentValue / 100).toString();
@@ -64,17 +66,33 @@ export default {
       this.expression = `${this.expression}${newValue}`;
     },
     equal() {
-      if (!this.expression) return false;
+      if (!this.expression || this.isActionEqual) return false;
+      if (
+        !["+", "-", "*", "/"].some((operator) =>
+          this.expression.includes(operator)
+        )
+      )
+        return false;
       this.append("=");
       this.isActionEqual = true;
       let newExpression = this.expression;
 
       let lastChar = this.expression.charAt(this.expression.length - 1);
       if (["+", "-", "*", "/", "="].includes(lastChar)) {
-        if (lastChar == "=") newExpression = this.expression.slice(0, -1);
-        else newExpression = `${this.expression}0`;
+        if (lastChar == "=") {
+          newExpression = this.expression.slice(0, -1);
+        } else {
+          newExpression = `${this.expression}0`;
+          this.expression = newExpression;
+        }
       }
-      this.currentValue = eval(newExpression || "").toString();
+
+      let ans = eval(newExpression);
+      if (ans == "Infinity") {
+        ans = "";
+        this.expression = "";
+      }
+      this.currentValue = ans.toString();
     },
   },
   computed: {

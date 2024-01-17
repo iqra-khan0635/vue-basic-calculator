@@ -101,8 +101,8 @@ export default {
   computed: {
     buttons() {
       return [
-        { label: "C", click: this.clear },
         { label: "CE", click: this.cancel },
+        { label: "C", click: this.clear },
         { label: "%", click: this.percentage },
         {
           label: "/",

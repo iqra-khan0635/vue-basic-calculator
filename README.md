@@ -1,24 +1,38 @@
-# vue-basic-calculator
+# Vue Basic Calculator App
 
-## Project setup
-```
-npm install
-```
+This is a simple calculator application built with Vue.js. It allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Features
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Clear
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Technologies Used
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Vue.js
+- HTML5
+- CSS3
+
+## Getting Started
+
+## Installation
+
+1. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+2. **Run the application:**
+
+   ```bash
+   npm run serve
+   ```
+
+3. **Open your browser and go to [http://localhost:8080](http://localhost:8080) to view the App.**
+4. **For the online demo visit [Vue Basic Calculator Demo](https://vue-basic-calculator.netlify.app/).**
+
+

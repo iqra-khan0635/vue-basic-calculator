@@ -33,6 +33,6 @@ This is a simple calculator application built with Vue.js. It allows users to pe
    ```
 
 3. **Open your browser and go to [http://localhost:8080](http://localhost:8080) to view the App.**
-4. **For the online demo visit [Vue Basic Calculator Demo](https://vue-basic-calculator.netlify.app/).**
+4. **For the online demo visit [Vue Basic Calculator Demo](https://iqra-vue-basic-calculator.netlify.app/).**
 
 
